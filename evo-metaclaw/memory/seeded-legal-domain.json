@@ -45,7 +45,12 @@
     "current_epoch": 0,
     "skills_count": 14,
     "last_im_pass": "2026-06-04",
-    "fixes_applied": ["xml-escape-clause-data", "redundant-guard-removal", "devflow-v1.1-sync"]
+    "last_push": "2026-06-04",
+    "remote": "https://github.com/dnzengou/ai-legal-claude.git",
+    "head_commit": "8e19cbc",
+    "ghcr_image": "ghcr.io/dnzengou/ai-legal-claude:latest",
+    "arm_build": "triggered — linux/amd64 + linux/arm64",
+    "fixes_applied": ["xml-escape-clause-data", "redundant-guard-removal", "devflow-v1.1-sync", "readme-legal-batch-added", "readme-project-tree-updated", "readme-docker-section-added"]
   },
-  "working_summary": "ai-legal-claude-main: 14-skill Claude Code legal suite. 5-agent parallel review pipeline. PDF generator hardened (xml-escape). EvoMetaClaw injected as meta-learning layer. ARM Docker deploy configured. Compliance niche underserved — CAN-SPAM/SOC2/HIPAA queued for next epoch mutation."
+  "working_summary": "ai-legal-claude-main: 14-skill Claude Code legal suite. 5-agent parallel review pipeline. PDF generator hardened (xml-escape). EvoMetaClaw injected as meta-learning layer. ARM Docker deploy live — ghcr.io/dnzengou/ai-legal-claude:latest (amd64+arm64). Pushed to dnzengou/ai-legal-claude. Compliance niche underserved — CAN-SPAM/SOC2/HIPAA queued for next epoch mutation."
 }

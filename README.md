@@ -186,11 +186,11 @@ The PDF generator ships as a multi-arch container image (linux/amd64 + linux/arm
 
 ```bash
 # Pull and run on any arch
-docker pull ghcr.io/zubair-trabzada/ai-legal-claude:latest
+docker pull ghcr.io/dnzengou/ai-legal-claude:latest
 
 # Generate a PDF from a review file
 docker run --rm -v $(pwd):/data \
-  ghcr.io/zubair-trabzada/ai-legal-claude:latest \
+  ghcr.io/dnzengou/ai-legal-claude:latest \
   scripts/generate_legal_pdf.py /data/CONTRACT-REVIEW.md /data/report.pdf
 ```
 
