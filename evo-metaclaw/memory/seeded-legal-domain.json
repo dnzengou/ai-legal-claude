@@ -1,0 +1,51 @@
+{
+  "schema": "evo-metaclaw/memory v1",
+  "generated": "2026-06-04",
+  "episodic": [],
+  "semantic": [
+    {
+      "concept": "xml-escape-required",
+      "note": "ReportLab Paragraph markup requires &amp; &lt; &gt; escaping. Contract text frequently contains these chars. xe() helper added to generate_legal_pdf.py.",
+      "source": "devflow-im-pass-2026-06-04"
+    },
+    {
+      "concept": "5-agent-parallel-pipeline",
+      "note": "legal-review launches 5 subagents simultaneously: clauses(20%), risks(25%), compliance(20%), terms(15%), recommendations(20%). circuit_breaker.max_subagent_depth must be >= 5.",
+      "source": "architecture"
+    },
+    {
+      "concept": "risk-scoring-scale",
+      "note": "1-3 Low (🟢), 4-6 Medium (🟡), 7-10 High (🔴). Used consistently across legal-risks, legal-review, legal-batch.",
+      "source": "architecture"
+    },
+    {
+      "concept": "output-file-naming",
+      "note": "CONTRACT-REVIEW-[name]-[date].md, RISK-ANALYSIS-[date].md, NDA-[parties]-[date].md, etc. Never deviate — PDF extractor regex depends on this.",
+      "source": "CLAUDE.md"
+    },
+    {
+      "concept": "compliance-coverage-gap",
+      "note": "legal-compliance covers GDPR/CCPA/ADA/PCI. Missing: CAN-SPAM, SOC2, HIPAA. Flag for next mutation epoch.",
+      "source": "matrix-thought-initial"
+    },
+    {
+      "concept": "disclaimer-mandatory",
+      "note": "Every output MUST include: This analysis is AI-generated and does not constitute legal advice. Non-negotiable per CLAUDE.md Rule 1.",
+      "source": "CLAUDE.md"
+    }
+  ],
+  "preference": {
+    "output_style": "KafCa",
+    "domain_focus": "legal-analysis",
+    "verbosity": 2,
+    "risk_display": "emoji+label"
+  },
+  "project_state": {
+    "active_genome": "legal-orchestrator-v1",
+    "current_epoch": 0,
+    "skills_count": 14,
+    "last_im_pass": "2026-06-04",
+    "fixes_applied": ["xml-escape-clause-data", "redundant-guard-removal", "devflow-v1.1-sync"]
+  },
+  "working_summary": "ai-legal-claude-main: 14-skill Claude Code legal suite. 5-agent parallel review pipeline. PDF generator hardened (xml-escape). EvoMetaClaw injected as meta-learning layer. ARM Docker deploy configured. Compliance niche underserved — CAN-SPAM/SOC2/HIPAA queued for next epoch mutation."
+}

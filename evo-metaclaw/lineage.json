@@ -1,0 +1,1 @@
+{"schema": "evo-metaclaw/lineage v1", "generated": "2026-06-04", "nodes": [{"id": "legal-orchestrator-v1", "parents": [], "epoch": 0, "fitness": 0.0, "niche": "contract_review"}], "edges": []}

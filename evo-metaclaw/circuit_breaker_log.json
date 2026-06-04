@@ -1,0 +1,1 @@
+{"schema": "evo-metaclaw/circuit_breaker_log v1", "generated": "2026-06-04", "events": [], "current_state": {"stagnation_count": 0, "diversity_score": 1.0, "self_evo_depth": 0, "status": "healthy"}}

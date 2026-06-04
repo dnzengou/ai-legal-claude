@@ -1,0 +1,50 @@
+# EvoMetaClaw — AI Legal Assistant Integration Config
+# Project: ai-legal-claude-main · 14 skills · 5-agent pipeline
+
+mode: auto                        # evolutionary + smart scheduler
+
+claw:
+  claw_type: claude-code          # Claude Code harness
+  intercept_turns: true
+  patch_system_prompt: false      # CLAUDE.md handles system context
+
+evolution:
+  pop_size: 14                    # one genome per legal skill (initial)
+  max_epochs: 4
+  grpo_group_size: 4
+  crossover_rate: 0.3
+  niches:
+    - contract_review             # legal-review, legal-risks, legal-compare
+    - document_generation         # legal-nda, legal-terms, legal-privacy, legal-agreement
+    - compliance                  # legal-compliance, legal-freelancer, legal-missing
+    - reporting                   # legal-report-pdf, legal-plain, legal-negotiate, legal-batch
+
+skills:
+  top_k: 3
+  retrieval_mode: hybrid
+  skill_library: evo-metaclaw/skill_library/
+
+memory:
+  enabled: true
+  top_k: 5
+  consolidation_interval: 10
+  path: evo-metaclaw/memory/
+
+scheduler:
+  enabled: true
+  sleep_start: "22:00"
+  sleep_end: "07:00"
+  idle_threshold_minutes: 30
+
+circuit_breaker:
+  patience: 3
+  max_recursion_depth: 2
+  max_subagent_depth: 5           # legal-review spawns 5, stay at limit
+
+artifacts:
+  genome:     evo-metaclaw/legal-orchestration-genome.md
+  population: evo-metaclaw/population.json
+  lineage:    evo-metaclaw/lineage.json
+  q_table:    evo-metaclaw/q_table.json
+  matrix_log: evo-metaclaw/matrix_thoughts.json
+  cb_log:     evo-metaclaw/circuit_breaker_log.json

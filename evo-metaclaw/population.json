@@ -1,0 +1,28 @@
+{
+  "schema": "evo-metaclaw/population v1",
+  "generated": "2026-06-04",
+  "genomes": [
+    {"id": "legal-review",       "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-review/SKILL.md"},
+    {"id": "legal-risks",        "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-risks/SKILL.md"},
+    {"id": "legal-compare",      "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-compare/SKILL.md"},
+    {"id": "legal-plain",        "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.2,  "skill_path": "skills/legal-plain/SKILL.md"},
+    {"id": "legal-negotiate",    "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-negotiate/SKILL.md"},
+    {"id": "legal-missing",      "niche": "compliance",         "fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-missing/SKILL.md"},
+    {"id": "legal-batch",        "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-batch/SKILL.md"},
+    {"id": "legal-nda",          "niche": "document_generation","fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-nda/SKILL.md"},
+    {"id": "legal-terms",        "niche": "document_generation","fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-terms/SKILL.md"},
+    {"id": "legal-privacy",      "niche": "document_generation","fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-privacy/SKILL.md"},
+    {"id": "legal-agreement",    "niche": "document_generation","fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-agreement/SKILL.md"},
+    {"id": "legal-freelancer",   "niche": "compliance",         "fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-freelancer/SKILL.md"},
+    {"id": "legal-compliance",   "niche": "compliance",         "fitness": 0.0, "age": 0, "mutation_rate": 0.2,  "skill_path": "skills/legal-compliance/SKILL.md"},
+    {"id": "legal-report-pdf",   "niche": "reporting",          "fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-report-pdf/SKILL.md"}
+  ],
+  "orchestrator": "evo-metaclaw/legal-orchestration-genome.md",
+  "epoch": 0,
+  "niche_stats": {
+    "contract_review":    {"count": 6, "avg_fitness": 0.0},
+    "document_generation":{"count": 4, "avg_fitness": 0.0},
+    "compliance":         {"count": 3, "avg_fitness": 0.0},
+    "reporting":          {"count": 1, "avg_fitness": 0.0}
+  }
+}
