@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Generated outputs (don't commit review results or PDFs)
+CONTRACT-REVIEW-*.md
+RISK-ANALYSIS-*.md
+CONTRACT-COMPARISON-*.md
+NEGOTIATION-STRATEGY-*.md
+BATCH-REVIEW-*.md
+FREELANCER-REVIEW-*.md
+COMPLIANCE-AUDIT-*.md
+NDA-*.md
+TERMS-OF-SERVICE-*.md
+PRIVACY-POLICY-*.md
+AGREEMENT-*.md
+*.pdf
+
+# Environment
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
