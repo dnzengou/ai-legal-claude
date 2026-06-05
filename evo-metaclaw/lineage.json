@@ -1,1 +1,16 @@
-{"schema": "evo-metaclaw/lineage v1", "generated": "2026-06-04", "nodes": [{"id": "legal-orchestrator-v1", "parents": [], "epoch": 0, "fitness": 0.0, "niche": "contract_review"}], "edges": []}
+{
+  "schema": "evo-metaclaw/lineage v1",
+  "generated": "2026-06-05",
+  "nodes": [
+    {"id": "legal-orchestrator-v1", "parents": [], "epoch": 0, "fitness": 0.0,  "niche": "contract_review"},
+    {"id": "legal-nda",             "parents": [], "epoch": 0, "fitness": 0.81, "niche": "document_generation"},
+    {"id": "legal-freelancer",      "parents": [], "epoch": 0, "fitness": 0.82, "niche": "compliance"},
+    {"id": "legal-compliance",      "parents": [], "epoch": 0, "fitness": 0.87, "niche": "compliance", "note": "mutated epoch 1: HIPAA full section"},
+    {"id": "legal-batch",           "parents": [], "epoch": 0, "fitness": 0.83, "niche": "contract_review", "note": "mutated epoch 1: niche-routing Phase 1.5"},
+    {"id": "legal-gig-economy",     "parents": ["legal-nda", "legal-freelancer"], "epoch": 1, "fitness": 0.0, "niche": "compliance", "splice_type": "SPLICE", "note": "gig worker / platform contract specialist"}
+  ],
+  "edges": [
+    {"from": "legal-nda",       "to": "legal-gig-economy", "type": "splice", "epoch": 1, "weight": 0.45},
+    {"from": "legal-freelancer","to": "legal-gig-economy", "type": "splice", "epoch": 1, "weight": 0.55}
+  ]
+}

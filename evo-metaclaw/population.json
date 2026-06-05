@@ -1,28 +1,31 @@
 {
   "schema": "evo-metaclaw/population v1",
-  "generated": "2026-06-04",
+  "generated": "2026-06-05",
+  "epoch": 1,
   "genomes": [
-    {"id": "legal-review",       "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-review/SKILL.md"},
-    {"id": "legal-risks",        "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-risks/SKILL.md"},
-    {"id": "legal-compare",      "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-compare/SKILL.md"},
-    {"id": "legal-plain",        "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.2,  "skill_path": "skills/legal-plain/SKILL.md"},
-    {"id": "legal-negotiate",    "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-negotiate/SKILL.md"},
-    {"id": "legal-missing",      "niche": "compliance",         "fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-missing/SKILL.md"},
-    {"id": "legal-batch",        "niche": "contract_review",    "fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-batch/SKILL.md"},
-    {"id": "legal-nda",          "niche": "document_generation","fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-nda/SKILL.md"},
-    {"id": "legal-terms",        "niche": "document_generation","fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-terms/SKILL.md"},
-    {"id": "legal-privacy",      "niche": "document_generation","fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-privacy/SKILL.md"},
-    {"id": "legal-agreement",    "niche": "document_generation","fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-agreement/SKILL.md"},
-    {"id": "legal-freelancer",   "niche": "compliance",         "fitness": 0.0, "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-freelancer/SKILL.md"},
-    {"id": "legal-compliance",   "niche": "compliance",         "fitness": 0.0, "age": 0, "mutation_rate": 0.2,  "skill_path": "skills/legal-compliance/SKILL.md"},
-    {"id": "legal-report-pdf",   "niche": "reporting",          "fitness": 0.0, "age": 0, "mutation_rate": 0.1,  "skill_path": "skills/legal-report-pdf/SKILL.md"}
+    {"id": "legal-review",       "niche": "contract_review",    "fitness": 0.85, "age": 1, "mutation_rate": 0.1,  "skill_path": "skills/legal-review/SKILL.md",       "mutations": []},
+    {"id": "legal-risks",        "niche": "contract_review",    "fitness": 0.82, "age": 1, "mutation_rate": 0.1,  "skill_path": "skills/legal-risks/SKILL.md",        "mutations": []},
+    {"id": "legal-compare",      "niche": "contract_review",    "fitness": 0.78, "age": 1, "mutation_rate": 0.15, "skill_path": "skills/legal-compare/SKILL.md",      "mutations": []},
+    {"id": "legal-plain",        "niche": "contract_review",    "fitness": 0.75, "age": 1, "mutation_rate": 0.2,  "skill_path": "skills/legal-plain/SKILL.md",        "mutations": []},
+    {"id": "legal-negotiate",    "niche": "contract_review",    "fitness": 0.80, "age": 1, "mutation_rate": 0.15, "skill_path": "skills/legal-negotiate/SKILL.md",    "mutations": []},
+    {"id": "legal-missing",      "niche": "compliance",         "fitness": 0.76, "age": 1, "mutation_rate": 0.15, "skill_path": "skills/legal-missing/SKILL.md",      "mutations": []},
+    {"id": "legal-batch",        "niche": "contract_review",    "fitness": 0.83, "age": 1, "mutation_rate": 0.1,  "skill_path": "skills/legal-batch/SKILL.md",        "mutations": ["niche-routing-phase-1.5", "specialist-lens-agent-prompt", "niche-column-ranking-table"]},
+    {"id": "legal-nda",          "niche": "document_generation","fitness": 0.81, "age": 1, "mutation_rate": 0.1,  "skill_path": "skills/legal-nda/SKILL.md",          "mutations": []},
+    {"id": "legal-terms",        "niche": "document_generation","fitness": 0.79, "age": 1, "mutation_rate": 0.1,  "skill_path": "skills/legal-terms/SKILL.md",        "mutations": []},
+    {"id": "legal-privacy",      "niche": "document_generation","fitness": 0.80, "age": 1, "mutation_rate": 0.1,  "skill_path": "skills/legal-privacy/SKILL.md",      "mutations": []},
+    {"id": "legal-agreement",    "niche": "document_generation","fitness": 0.77, "age": 1, "mutation_rate": 0.15, "skill_path": "skills/legal-agreement/SKILL.md",    "mutations": []},
+    {"id": "legal-freelancer",   "niche": "compliance",         "fitness": 0.82, "age": 1, "mutation_rate": 0.15, "skill_path": "skills/legal-freelancer/SKILL.md",   "mutations": []},
+    {"id": "legal-compliance",   "niche": "compliance",         "fitness": 0.87, "age": 1, "mutation_rate": 0.2,  "skill_path": "skills/legal-compliance/SKILL.md",   "mutations": ["hipaa-promoted-full-section", "hipaa-weight-added", "hipaa-scorecard-row", "hipaa-framework-detail"]},
+    {"id": "legal-report-pdf",   "niche": "reporting",          "fitness": 0.88, "age": 1, "mutation_rate": 0.1,  "skill_path": "skills/legal-report-pdf/SKILL.md",   "mutations": []},
+    {"id": "legal-gig-economy",  "niche": "compliance",         "fitness": 0.0,  "age": 0, "mutation_rate": 0.15, "skill_path": "skills/legal-gig-economy/SKILL.md",  "mutations": [], "lineage": ["legal-nda", "legal-freelancer"], "splice_epoch": 1}
   ],
   "orchestrator": "evo-metaclaw/legal-orchestration-genome.md",
-  "epoch": 0,
   "niche_stats": {
-    "contract_review":    {"count": 6, "avg_fitness": 0.0},
-    "document_generation":{"count": 4, "avg_fitness": 0.0},
-    "compliance":         {"count": 3, "avg_fitness": 0.0},
-    "reporting":          {"count": 1, "avg_fitness": 0.0}
-  }
+    "contract_review":    {"count": 6, "avg_fitness": 0.805},
+    "document_generation":{"count": 4, "avg_fitness": 0.793},
+    "compliance":         {"count": 4, "avg_fitness": 0.813},
+    "reporting":          {"count": 1, "avg_fitness": 0.880}
+  },
+  "diversity_score": 0.93,
+  "circuit_breaker": "healthy"
 }

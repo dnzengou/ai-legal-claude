@@ -1,1 +1,36 @@
-{"schema": "evo-metaclaw/circuit_breaker_log v1", "generated": "2026-06-04", "events": [], "current_state": {"stagnation_count": 0, "diversity_score": 1.0, "self_evo_depth": 0, "status": "healthy"}}
+{
+  "schema": "evo-metaclaw/circuit_breaker_log v1",
+  "generated": "2026-06-05",
+  "events": [
+    {
+      "epoch": 1,
+      "timestamp": "2026-06-05",
+      "check": "pre-evolution",
+      "status": "healthy",
+      "diversity_score": 1.0,
+      "stagnation_count": 0,
+      "self_evo_depth": 0,
+      "decision": "PROCEED"
+    },
+    {
+      "epoch": 1,
+      "timestamp": "2026-06-05",
+      "check": "post-evolution",
+      "status": "healthy",
+      "diversity_score": 0.93,
+      "stagnation_count": 0,
+      "self_evo_depth": 0,
+      "new_genomes": 1,
+      "mutated_genomes": 2,
+      "decision": "CHECKPOINT_SAVED"
+    }
+  ],
+  "current_state": {
+    "stagnation_count": 0,
+    "diversity_score": 0.93,
+    "self_evo_depth": 0,
+    "status": "healthy",
+    "epoch": 1,
+    "population_size": 15
+  }
+}

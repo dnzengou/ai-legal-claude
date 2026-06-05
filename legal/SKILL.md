@@ -32,6 +32,7 @@ DOCUMENT GENERATION:
   /legal privacy <url>          Generate privacy policy
   /legal agreement <type>       Generate business agreements
   /legal freelancer <file>      Freelancer/contractor review
+  /legal gig-economy <file>     Gig worker / platform contract review
 
 COMPLIANCE & REPORTING:
   /legal compliance <url>       Compliance gap analysis
@@ -56,6 +57,7 @@ When the user types a command, route to the appropriate skill:
 | `/legal privacy` | legal-privacy | Privacy policy generation |
 | `/legal agreement` | legal-agreement | Business agreement templates |
 | `/legal freelancer` | legal-freelancer | Freelancer contract review |
+| `/legal gig-economy` | legal-gig-economy | Gig worker / platform contract review (splice: nda + freelancer) |
 | `/legal compliance` | legal-compliance | Compliance gap analysis |
 | `/legal report-pdf` | legal-report-pdf | Professional PDF report |
 

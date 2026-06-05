@@ -39,7 +39,7 @@ Before evaluating compliance, detect what the site does so you know which framew
 | Has a website (any) | ADA/WCAG |
 | Serves EU/EEA users | GDPR |
 | Serves California users | CCPA/CPRA |
-| Health-related data | HIPAA (flag only) |
+| Health-related data (PHI, telehealth, health apps) | HIPAA |
 | Financial data | GLBA (flag only) |
 
 ---
@@ -163,6 +163,23 @@ For EACH applicable framework, evaluate every check item. Use these statuses:
 | T6 | **DPA Available** | Data Processing Agreement or Addendum available for customers. | | |
 | T7 | **Certifications Displayed** | SOC 2, ISO 27001, GDPR badges or certification mentions. | | |
 
+### 2.8 HIPAA (Health Insurance Portability and Accountability Act)
+
+**Applies if:** Site handles Protected Health Information (PHI) — health records, telehealth platforms, fitness/health apps sharing data with covered entities, healthcare SaaS, medical billing.
+
+| # | Check Item | What to Look For | Status | Notes |
+|---|-----------|-----------------|--------|-------|
+| H1 | **Business Associate Agreement (BAA)** | If site is a vendor handling PHI on behalf of a covered entity, a BAA is offered or mentioned. | | |
+| H2 | **PHI Definition Disclosed** | Privacy policy defines what constitutes PHI and distinguishes it from general health info. | | |
+| H3 | **Minimum Necessary Standard** | Policy states data collection is limited to what is necessary for the disclosed purpose. | | |
+| H4 | **Patient Rights Described** | Right to access, amend, and receive an accounting of disclosures described. | | |
+| H5 | **Security Safeguards** | Administrative, physical, and technical safeguards described (encryption at rest/in transit, access controls, audit logs). | | |
+| H6 | **Breach Notification Procedure** | Policy describes notification to affected individuals within 60 days and HHS reporting obligations. | | |
+| H7 | **De-identification Standard** | If data is described as de-identified, the standard used (Safe Harbor or Expert Determination) is stated. | | |
+| H8 | **No Sale of PHI** | Policy explicitly states PHI is not sold to third parties. | | |
+
+**Note:** HIPAA compliance cannot be fully verified from a surface scan. A full HIPAA risk assessment requires reviewing internal policies, workforce training records, and technical controls. Flag this limitation prominently.
+
 ---
 
 ## Phase 3: Scoring and Prioritization
@@ -185,10 +202,11 @@ Weight the frameworks by impact severity:
 |-----------|--------|-----------|
 | GDPR | 25% | Heavy fines (up to 4% global revenue) |
 | CCPA/CPRA | 20% | Significant fines, class action risk |
-| ADA/WCAG | 15% | Lawsuit risk, DOJ enforcement |
+| ADA/WCAG | 10% | Lawsuit risk, DOJ enforcement |
 | PCI-DSS | 20% | Breach liability, processing suspension |
-| CAN-SPAM | 10% | Per-violation fines up to $51,744 |
-| COPPA | 10% | FTC enforcement, reputational damage |
+| CAN-SPAM | 5% | Per-violation fines up to $51,744 |
+| COPPA | 5% | FTC enforcement, reputational damage |
+| HIPAA | 15% | Civil penalties up to $1.9M/year per violation category; criminal exposure |
 | SOC 2 | Bonus | No penalty for absence but competitive disadvantage |
 
 ### 3.3 Priority Classification
@@ -232,6 +250,7 @@ Output the report as `COMPLIANCE-AUDIT-[company]-[YYYY-MM-DD].md`.
 | CAN-SPAM | [X]% | [A-F] | [status] |
 | COPPA | [X]% | [A-F] | [status] |
 | SOC 2 | [X]% | [A-F] | [status] |
+| HIPAA | [X]% | [A-F] | [status or N/A if no PHI] |
 | **Overall** | **[X]%** | **[A-F]** | |
 
 ### Grade Scale
@@ -323,6 +342,10 @@ Output the report as `COMPLIANCE-AUDIT-[company]-[YYYY-MM-DD].md`.
 ## Framework Detail: SOC 2
 
 [Full audit table]
+
+## Framework Detail: HIPAA
+
+[Full audit table — H1–H8. Mark N/A if site does not handle PHI. Always include surface-scan limitation note.]
 
 ---
 

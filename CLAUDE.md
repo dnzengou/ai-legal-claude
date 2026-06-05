@@ -1,6 +1,6 @@
 # AI Legal Assistant — Claude Code Skills Suite
 
-Production-ready legal analysis system. 14 skills, 5 parallel agents, PDF report generation.
+Production-ready legal analysis system. 15 skills, 5 parallel agents, PDF report generation.
 
 ## What This Does
 
@@ -19,7 +19,8 @@ Drops into Claude Code as slash commands. No server. No subscription. Runs on yo
 /legal privacy <url>          → generate Privacy Policy
 /legal agreement <type>       → generate business agreements
 /legal freelancer <file>      → freelancer-perspective review
-/legal compliance <url>       → GDPR/CCPA/ADA/PCI gap analysis
+/legal gig-economy <file>     → gig worker / platform contract review
+/legal compliance <url>       → GDPR/CCPA/ADA/PCI/HIPAA gap analysis
 /legal report-pdf             → professional PDF from latest review
 ```
 
@@ -131,6 +132,15 @@ pip install reportlab
 
 ## Changelog
 
+### 2026-06-05 — EvoMetaClaw Epoch 1 — 3 Mutations, 15 Skills
+
+- **M1 MUTATE legal-compliance**: HIPAA promoted from `flag only` to full audit section (H1–H8). Weight: HIPAA 15%, ADA 10%, CAN-SPAM 5%, COPPA 5%. Civil penalties up to $1.9M/year now surfaced. Scorecard + framework detail + report template updated.
+- **M2 SPLICE legal-nda + legal-freelancer → legal-gig-economy** (new skill): Covers gig workers, platform contractors, marketplace agreements (Upwork/Fiverr/Toptal). 10 analysis lenses: IP ownership, payment protection, scope creep, platform clauses, NDA scope, misclassification, non-compete, termination/kill fee, indemnification, dispute resolution. Gig Safety Score 0–100. Command: `/legal gig-economy <file>`.
+- **M3 MUTATE legal-batch**: Phase 1.5 niche-routing added. Detects contract type → assigns specialist lens (SaaS, Employment, Freelancer/Gig, NDA, Investment, Lease, Partnership, General). Each parallel agent is now niche-aware. Ranking table includes Niche column.
+- **Router updated**: `legal/SKILL.md` routes `/legal gig-economy`. 15 commands now in suite.
+- **EvoMetaClaw epoch 1 complete**: population_size=15, diversity=0.93, circuit_breaker=healthy. Q-gate accepted all 3 mutations (M2 provisional — monitor 3 sessions).
+- **Epoch 2 queued**: legal-plain KafCa token-trim, legal-gig-economy fitness calibration, legal-review gig-economy type detection.
+
 ### 2026-06-04 — EvoMetaClaw Integration + ARM Deploy + Im Hardening
 
 - **Security fix (P0)**: Added `xe()` XML-escape helper in `scripts/generate_legal_pdf.py` — all clause data (name, section, summary, risk_explanation, recommendation) now escaped before ReportLab Paragraph markup. Contracts with `<`, `>`, `&` in clause text no longer crash PDF build.
@@ -138,7 +148,7 @@ pip install reportlab
 - **EvoMetaClaw injected**: Added `evo-metaclaw/` meta-learning layer — config, orchestration genome, 14-skill population, seeded domain memory, matrix thoughts, circuit breaker, Q-table, lineage. Evolves skill routing from live sessions. Mode: `auto` (idle-window scheduling).
 - **ARM deploy**: Added `Dockerfile` (python:3.12-slim, multi-arch) + `.github/workflows/docker.yml` — builds `linux/amd64 + linux/arm64` on push to main, publishes to GHCR.
 - **DEVFLOW_SKILL.md synced to v1.1**: Updated D-command platform selection matrix (Fly.io ARM64, Railway, GHCR, Vercel ASGI paths). Was stale at v1.0.
-- **EvoMetaClaw epoch 0 matrix**: Compliance niche underserved — CAN-SPAM/SOC2/HIPAA queued for mutation epoch 1. Splice mutation `legal-nda + legal-freelancer → legal-gig-economy` queued for epoch 3.
+- **EvoMetaClaw epoch 0 matrix**: Compliance niche underserved — CAN-SPAM/SOC2/HIPAA queued for mutation epoch 1. Splice mutation `legal-nda + legal-freelancer → legal-gig-economy` queued for epoch 1 (executed ahead of schedule).
 
 ### 2026-05-23 — DevFlow CI Pass
 - **Fixed critical bug**: `importlib.util.load_from_spec` → `module_from_spec` in `scripts/generate_legal_pdf.py` (markdown→PDF auto-mode was crashing)

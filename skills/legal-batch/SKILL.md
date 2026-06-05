@@ -23,6 +23,34 @@ User runs `/legal batch <file1> <file2> [...]` with 2 to 10 contract files. Each
 
 ---
 
+## Phase 1.5: Niche Detection & Specialist Lens Assignment
+
+Before launching agents, read each contract and assign a specialist lens. This lets each agent apply the most relevant risk framework rather than a generic one.
+
+**Detection signals → Niche → Specialist Lens:**
+
+| Contract Signals | Niche | Specialist Lens Injected |
+|-----------------|-------|--------------------------|
+| "subscription," "SLA," "uptime," "API," "data processing" | SaaS/Software | Focus: data ownership, auto-renewal, liability cap, SLA penalties, GDPR/CCPA |
+| "employee," "salary," "benefits," "at-will," "non-compete" | Employment | Focus: non-compete scope, IP assignment, severance, misclassification signals |
+| "independent contractor," "1099," "work product," "freelancer" | Freelancer/Gig | Focus: IP grab, kill fee, scope creep, payment protection, portfolio rights |
+| "confidential," "non-disclosure," "receiving party," "NDA" | NDA | Focus: definition breadth, duration, carve-outs, residuals clause |
+| "investor," "equity," "valuation cap," "convertible," "SAFE" | Investment | Focus: dilution, liquidation preferences, pro-rata rights, board control |
+| "landlord," "tenant," "premises," "rent," "lease" | Lease | Focus: termination penalties, maintenance liability, renewal traps |
+| "partner," "profit sharing," "capital contribution" | Partnership | Focus: dissolution terms, decision authority, liability allocation |
+| Other / unclear | General | Standard balanced review across all risk categories |
+
+**Phase 1.5 Output:** For each contract, record:
+```
+{
+  filename: string,
+  niche: string,
+  specialist_lens: string   // injected into agent prompt below
+}
+```
+
+---
+
 ## Phase 2: Launch Parallel Agents
 
 Launch ONE agent PER CONTRACT simultaneously using the Agent tool. Do not wait for one to finish before starting the next — all agents launch in parallel.
@@ -33,6 +61,8 @@ Launch ONE agent PER CONTRACT simultaneously using the Agent tool. Do not wait f
 You are a contract risk analyst performing a rapid safety assessment.
 
 CONTRACT FILE: [filename]
+CONTRACT NICHE: [niche from Phase 1.5]
+SPECIALIST LENS: [specialist_lens from Phase 1.5 — apply these checks with elevated weight]
 CONTRACT TEXT:
 [full contract text]
 
@@ -131,9 +161,9 @@ Generate `BATCH-REVIEW-[YYYY-MM-DD].md` with this structure:
 
 Contracts ranked from highest risk to lowest risk:
 
-| Rank | Contract | Type | Safety Score | Grade | High | Med | Low | Recommendation |
-|------|----------|------|-------------|-------|------|-----|-----|----------------|
-| 1 | [filename] | [type] | [score]/100 | [grade] ([label]) | [n] | [n] | [n] | [SIGN/NEGOTIATE/ESCALATE/REJECT] |
+| Rank | Contract | Type | Niche | Safety Score | Grade | High | Med | Low | Recommendation |
+|------|----------|------|-------|-------------|-------|------|-----|-----|----------------|
+| 1 | [filename] | [type] | [niche] | [score]/100 | [grade] ([label]) | [n] | [n] | [n] | [SIGN/NEGOTIATE/ESCALATE/REJECT] |
 | 2 | ... | | | | | | | |
 ...
 
