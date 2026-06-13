@@ -132,6 +132,32 @@ pip install reportlab
 
 ## Changelog
 
+### 2026-06-13 — Accessibility-First Visual Redesign (WCAG 2.1 AA)
+
+UX/UI overhaul of every visual surface — PDFs, markdown templates, banner, README — with WCAG 2.1 Level AA conformance and triple-redundant risk indicators (shape + text + color). Driven by KafCade + KafCa: terse code, no premature abstraction, RRSS principles. Sets the baseline so disability-adjusted output is the default, not a flag.
+
+- **PDF generator (`scripts/generate_legal_pdf.py`)** — full rewrite of visual layer:
+  - **Palette to WCAG-AA** — danger `#b91c1c` (5.9:1), warning `#92400e` (7.8:1), success `#166534` (7.4:1), gray_text `#4a5568` (7.2:1). Old values (#e53e3e at 3.8:1, #d69e2e at 2.1:1, #38a169 at 3.3:1) failed contrast for normal text. Contrast ratios documented inline in COLORS dict.
+  - **Triple-channel risk cues (WCAG 1.4.1)** — every risk indicator pairs a shape (▲ ■ ●), a text label (HIGH/MEDIUM/LOW), and a color. Removing any single channel preserves meaning. Applied to cover gauge descriptor, risk table rows, bar chart, clause headers, accessibility legend.
+  - **Risk bar chart redesign** — segments use distinct fill patterns (hatched HIGH, dotted MEDIUM, solid LOW) plus inline counts, bordered for visibility, with a shape-prefixed textual legend below. Readable in monochrome and by colorblind users.
+  - **Score gauge upgrade** — adds plain-English risk descriptor ("MODERATE RISK") below the numeric score; needle width bumped; gauge arc colors aligned to WCAG palette.
+  - **Larger fonts + line height** — body 10pt → 11pt with 16pt leading; disclaimer 8pt → 10pt; footer 8pt → 9pt. Meets WCAG 1.4.4 Resize Text.
+  - **PDF metadata** — `SimpleDocTemplate` now sets `title` (includes contract type), `author`, `subject`, `creator`, `keywords`. Surfaces in Reader title bars and assistive-tech tooling.
+  - **PDF `/Lang` tag (WCAG 3.1.1)** — `en-US` written to the catalog via `_set_pdf_language` page hook. Verified present in object 15 of generated PDFs. ReportLab 4.5 does not expose `Canvas.setLanguage()`, so the catalog is written directly via `PDFString`.
+  - **Accessibility & Reading Guide section** — every report ends with a dedicated legend page: three-channel encoding explainer, symbol/label/meaning table, conformance bullets, and how to report accessibility bugs.
+  - **Score clamping** — defensive `max(0, min(100, ...))` on score input guards against malformed data.
+  - **Boundary hardening** — `load_data` catches `json.JSONDecodeError` and `OSError` with actionable messages instead of stack traces; guards `spec.loader` being `None`.
+- **Template (`templates/contract-review-template.md`)** — risk labels now lead with shape glyph + text + emoji color: `▲ HIGH RISK 🔴` instead of `🔴 High Risk` alone. Applied to risk dashboard, clause section headers, missing-protections table, and template usage notes. WCAG 1.4.1 enforced as template convention.
+- **Banner SVG (`assets/banner.svg`)** — proper accessibility semantics:
+  - `role="img"`, `<title>`, `<desc>` so screen readers announce a meaningful summary.
+  - Decorative elements (grid, terminal chrome, scale-of-justice icon) marked `aria-hidden="true"`.
+  - Subtitle `#8899bb` (4.4:1 borderline) → `#b8c5dd` (7.5:1 AAA) on dark background.
+  - Terminal placeholder text `#556688` (1.9:1, failed) → `#8aa0c4` (4.5:1, AA).
+  - Footer corrected to "15 skills" (was stale "14") with "accessible PDF reports" tagline.
+- **README** — new "Accessibility (WCAG 2.1 AA)" section between Requirements and Docker/ARM, with per-surface conformance table and a practical "what this means in practice" subsection. Links to `assets/ACCESSIBILITY.md`.
+- **NEW `assets/ACCESSIBILITY.md`** — full accessibility statement: conformance target (WCAG 2.1 AA + Section 508 + EAA), per-surface checklist mapped to WCAG success criteria, known limitations (PDF/UA tagging deferred, English-only output), testing methodology (NVDA, VoiceOver, monochrome print preview), 48-hour acknowledgement SLA for accessibility bug reports.
+- **Verification** — smoke-tested both JSON and Markdown auto-modes; confirmed `/Lang (en-US)` in catalog, title metadata includes contract type, shape glyphs render via Helvetica WinAnsi, no regressions in clause/risk/missing-protection rendering. ARM Docker build will pick up changes via existing `.github/workflows/docker.yml` on push to main.
+
 ### 2026-06-05 — EvoMetaClaw Epoch 1 — 3 Mutations, 15 Skills
 
 - **M1 MUTATE legal-compliance**: HIPAA promoted from `flag only` to full audit section (H1–H8). Weight: HIPAA 15%, ADA 10%, CAN-SPAM 5%, COPPA 5%. Civil penalties up to $1.9M/year now surfaced. Scorecard + framework detail + report template updated.

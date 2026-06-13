@@ -41,17 +41,20 @@ Scoring Guide:
 
 ## Risk Dashboard
 
+<!-- Accessibility: risk encoded by text label + shape symbol + emoji color.
+     Screen readers announce the text label; colorblind users see the shape; sighted users see the color. -->
+
 | Risk Level | Count | Clauses |
 |------------|-------|---------|
-| 🔴 High Risk | [number] | [Comma-separated list of clause names, e.g., "Indemnification, IP Assignment, Non-Compete"] |
-| 🟡 Medium Risk | [number] | [Comma-separated list of clause names, e.g., "Limitation of Liability, Termination, Confidentiality"] |
-| 🟢 Low Risk | [number] | [Comma-separated list of clause names, e.g., "Force Majeure, Notices, Severability"] |
+| ▲ HIGH RISK 🔴 | [number] | [Comma-separated list of clause names, e.g., "Indemnification, IP Assignment, Non-Compete"] |
+| ■ MEDIUM RISK 🟡 | [number] | [Comma-separated list of clause names, e.g., "Limitation of Liability, Termination, Confidentiality"] |
+| ● LOW RISK 🟢 | [number] | [Comma-separated list of clause names, e.g., "Force Majeure, Notices, Severability"] |
 
 ---
 
 ## Clause-by-Clause Analysis
 
-### 🔴 HIGH RISK CLAUSES
+### ▲ HIGH RISK CLAUSES 🔴
 
 <!-- Repeat this block for EACH high-risk clause found in the contract. -->
 
@@ -69,7 +72,7 @@ Scoring Guide:
 
 <!-- Add more high-risk clauses using the same format above. -->
 
-### 🟡 MEDIUM RISK CLAUSES
+### ■ MEDIUM RISK CLAUSES 🟡
 
 <!-- Repeat this block for EACH medium-risk clause. Same format as high risk. -->
 
@@ -85,7 +88,7 @@ Scoring Guide:
 
 ---
 
-### 🟢 LOW RISK / STANDARD CLAUSES
+### ● LOW RISK / STANDARD CLAUSES 🟢
 
 <!-- Brief summary of clauses that are acceptable. No need for the full 4-field format. -->
 
@@ -103,11 +106,11 @@ Scoring Guide:
 
 | # | Missing Protection | Why It Matters | Risk Level |
 |---|-------------------|----------------|------------|
-| 1 | [e.g., "Limitation of Liability Clause"] | [e.g., "Without a liability cap, you could be liable for unlimited damages far exceeding the contract value."] | 🔴 High |
-| 2 | [e.g., "Data Protection / Privacy Clause"] | [e.g., "If personal data is exchanged, both parties need defined obligations for handling, storing, and breach notification."] | 🟡 Medium |
-| 3 | [e.g., "Force Majeure Clause"] | [e.g., "Without this, failure to perform due to unforeseeable events (pandemic, natural disaster) could be treated as a breach."] | 🟡 Medium |
-| 4 | [e.g., "Dispute Resolution Mechanism"] | [e.g., "Without a defined process (mediation, arbitration), any disagreement goes straight to expensive litigation."] | 🟡 Medium |
-| 5 | [e.g., "Insurance Requirements"] | [e.g., "No requirement for professional liability insurance, leaving both parties exposed if work product causes harm."] | 🟢 Low |
+| 1 | [e.g., "Limitation of Liability Clause"] | [e.g., "Without a liability cap, you could be liable for unlimited damages far exceeding the contract value."] | ▲ HIGH 🔴 |
+| 2 | [e.g., "Data Protection / Privacy Clause"] | [e.g., "If personal data is exchanged, both parties need defined obligations for handling, storing, and breach notification."] | ■ MED 🟡 |
+| 3 | [e.g., "Force Majeure Clause"] | [e.g., "Without this, failure to perform due to unforeseeable events (pandemic, natural disaster) could be treated as a breach."] | ■ MED 🟡 |
+| 4 | [e.g., "Dispute Resolution Mechanism"] | [e.g., "Without a defined process (mediation, arbitration), any disagreement goes straight to expensive litigation."] | ■ MED 🟡 |
+| 5 | [e.g., "Insurance Requirements"] | [e.g., "No requirement for professional liability insurance, leaving both parties exposed if work product causes harm."] | ● LOW 🟢 |
 
 ---
 
@@ -183,8 +186,9 @@ TEMPLATE USAGE NOTES:
    - NDAs: exclusions, duration, permitted disclosures
    - SaaS: uptime SLA, data portability, exit assistance
    - Freelancer: kill fee, revision limits, portfolio rights
-7. All risk levels (🔴🟡🟢) should be assigned consistently:
-   - 🔴 High: Could cause significant financial loss, legal liability, or loss of rights
-   - 🟡 Medium: Could cause moderate disadvantage or create ambiguity
-   - 🟢 Low: Minor issue or standard clause with small improvement possible
+7. All risk levels are encoded with three independent cues — shape + text + color emoji:
+   - ▲ HIGH 🔴: Could cause significant financial loss, legal liability, or loss of rights
+   - ■ MEDIUM 🟡: Could cause moderate disadvantage or create ambiguity
+   - ● LOW 🟢: Minor issue or standard clause with small improvement possible
+8. Accessibility — never rely on color alone (WCAG 2.1 SC 1.4.1). Always include the text label and shape glyph.
 -->

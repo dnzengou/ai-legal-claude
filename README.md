@@ -180,6 +180,32 @@ ai-legal-claude/
 
 ---
 
+## Accessibility (WCAG 2.1 AA)
+
+This tool is built to be usable by everyone — including readers with low vision, color-blindness, motor-control limitations, or who use screen readers. Accessibility is treated as a correctness requirement, not a polish item.
+
+### What we do
+
+| Surface | Accessibility features |
+|---------|------------------------|
+| **PDF reports** | WCAG-AA color palette (≥4.5:1 contrast), risk encoded by shape + text + color (never color alone), 11pt body text with 16pt line height, PDF `/Lang` tag (`en-US`), title/author/subject metadata, dedicated "Accessibility & Reading Guide" section at the end of every report |
+| **Risk indicators** | ▲ HIGH · ■ MEDIUM · ● LOW — three independent cues per WCAG 1.4.1 |
+| **Bar chart** | Hatched (HIGH), dotted (MEDIUM), solid (LOW) fills — readable without color |
+| **Markdown templates** | Text labels always paired with emoji color — `▲ HIGH RISK 🔴` not `🔴` alone |
+| **Banner SVG** | `role="img"`, `<title>`, `<desc>`, decorative elements marked `aria-hidden="true"` |
+| **README** | Logical heading hierarchy, alt text on every image |
+
+### What this means in practice
+
+- A colorblind reviewer reads `▲ HIGH RISK` and knows the severity without seeing red.
+- A screen-reader user hears "HIGH RISK clause: Indemnification, Section 7.2" — semantic, not visual.
+- A printed-monochrome report still flags risks correctly via patterns and shapes.
+- A low-vision user can resize text without breaking the layout (11pt baseline, 200% zoom safe).
+
+See [ACCESSIBILITY.md](assets/ACCESSIBILITY.md) for the full statement, conformance details, and how to report issues.
+
+---
+
 ## Docker / ARM Deploy
 
 The PDF generator ships as a multi-arch container image (linux/amd64 + linux/arm64). Works on Apple Silicon, AWS Graviton, and standard x86.
