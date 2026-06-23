@@ -93,7 +93,7 @@ if [ -f "$SOURCE_DIR/legal/SKILL.md" ]; then
 fi
 
 # ---------------------------------------------------------------------------
-# Install 15 sub-skills
+# Install 16 sub-skills (15 + legal/orchestrator = 16 total commands)
 # ---------------------------------------------------------------------------
 SKILLS=(
     legal-review

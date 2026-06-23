@@ -104,7 +104,7 @@ if (Test-Path $OrchestratorSrc) {
 }
 
 # ---------------------------------------------------------------------------
-# Install 15 sub-skills
+# Install 16 sub-skills (15 + legal/orchestrator = 16 total commands)
 # ---------------------------------------------------------------------------
 $Skills = @(
     'legal-review',
