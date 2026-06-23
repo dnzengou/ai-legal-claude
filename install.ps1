@@ -1,6 +1,6 @@
 # =============================================================================
 # AI Legal Assistant — Windows PowerShell Installer
-# 14 Skills · 5 Agents · PDF Reports
+# 16 Skills · 5 Agents · PDF Reports
 # =============================================================================
 #Requires -Version 5.1
 Set-StrictMode -Version Latest
@@ -14,7 +14,7 @@ function Write-Header {
     Write-Host "╔══════════════════════════════════════════════════════════════╗" -ForegroundColor Blue
     Write-Host "║                                                              ║" -ForegroundColor Blue
     Write-Host "║   AI Legal Assistant — Claude Code Skills                    ║" -ForegroundColor Blue
-    Write-Host "║   14 Skills · 5 Agents · PDF Reports                        ║" -ForegroundColor Blue
+    Write-Host "║   16 Skills · 5 Agents · PDF Reports                        ║" -ForegroundColor Blue
     Write-Host "║                                                              ║" -ForegroundColor Blue
     Write-Host "╚══════════════════════════════════════════════════════════════╝" -ForegroundColor Blue
     Write-Host ""
@@ -104,7 +104,7 @@ if (Test-Path $OrchestratorSrc) {
 }
 
 # ---------------------------------------------------------------------------
-# Install 14 sub-skills
+# Install 15 sub-skills
 # ---------------------------------------------------------------------------
 $Skills = @(
     'legal-review',
@@ -114,12 +114,14 @@ $Skills = @(
     'legal-negotiate',
     'legal-missing',
     'legal-batch',
+    'legal-due-diligence',
     'legal-nda',
     'legal-terms',
     'legal-privacy',
     'legal-agreement',
     'legal-compliance',
     'legal-freelancer',
+    'legal-gig-economy',
     'legal-report-pdf'
 )
 

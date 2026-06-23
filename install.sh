@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================================
 # AI Legal Assistant — Claude Code Skills Installer
-# 14 Skills · 5 Agents · PDF Reports
+# 16 Skills · 5 Agents · PDF Reports
 # ============================================================================
 set -e
 
@@ -17,7 +17,7 @@ echo ""
 echo -e "${BLUE}╔══════════════════════════════════════════════════════════════╗${NC}"
 echo -e "${BLUE}║                                                              ║${NC}"
 echo -e "${BLUE}║${NC}   ${CYAN}AI Legal Assistant — Claude Code Skills${NC}                   ${BLUE}║${NC}"
-echo -e "${BLUE}║${NC}   ${GREEN}14 Skills · 5 Agents · PDF Reports${NC}                       ${BLUE}║${NC}"
+echo -e "${BLUE}║${NC}   ${GREEN}16 Skills · 5 Agents · PDF Reports${NC}                       ${BLUE}║${NC}"
 echo -e "${BLUE}║                                                              ║${NC}"
 echo -e "${BLUE}╚══════════════════════════════════════════════════════════════╝${NC}"
 echo ""
@@ -93,7 +93,7 @@ if [ -f "$SOURCE_DIR/legal/SKILL.md" ]; then
 fi
 
 # ---------------------------------------------------------------------------
-# Install 13 sub-skills
+# Install 15 sub-skills
 # ---------------------------------------------------------------------------
 SKILLS=(
     legal-review
@@ -103,12 +103,14 @@ SKILLS=(
     legal-negotiate
     legal-missing
     legal-batch
+    legal-due-diligence
     legal-nda
     legal-terms
     legal-privacy
     legal-agreement
     legal-compliance
     legal-freelancer
+    legal-gig-economy
     legal-report-pdf
 )
 
@@ -221,19 +223,21 @@ echo ""
 # ---------------------------------------------------------------------------
 echo -e "${BLUE}Command Reference:${NC}"
 echo ""
-echo -e "  ${CYAN}/legal review <file>${NC}            Full contract review (5 agents)"
-echo -e "  ${CYAN}/legal risks <file>${NC}             Deep risk analysis"
-echo -e "  ${CYAN}/legal compare <f1> <f2>${NC}        Side-by-side comparison"
-echo -e "  ${CYAN}/legal plain <file>${NC}             Plain English translation"
-echo -e "  ${CYAN}/legal negotiate <file>${NC}         Counter-proposal generator"
-echo -e "  ${CYAN}/legal missing <file>${NC}           Missing protections finder"
-echo -e "  ${CYAN}/legal nda <description>${NC}        Generate custom NDA"
-echo -e "  ${CYAN}/legal terms <url>${NC}              Generate terms of service"
-echo -e "  ${CYAN}/legal privacy <url>${NC}            Generate privacy policy"
-echo -e "  ${CYAN}/legal agreement <type>${NC}         Generate business agreements"
-echo -e "  ${CYAN}/legal freelancer <file>${NC}        Freelancer contract review"
-echo -e "  ${CYAN}/legal compliance <url>${NC}         Compliance gap analysis"
-echo -e "  ${CYAN}/legal report-pdf${NC}               Professional PDF report"
+echo -e "  ${CYAN}/legal review <file>${NC}               Full contract review (5 agents)"
+echo -e "  ${CYAN}/legal risks <file>${NC}                Deep risk analysis"
+echo -e "  ${CYAN}/legal compare <f1> <f2>${NC}           Side-by-side comparison"
+echo -e "  ${CYAN}/legal plain <file>${NC}                Plain English translation"
+echo -e "  ${CYAN}/legal negotiate <file>${NC}            Counter-proposal generator"
+echo -e "  ${CYAN}/legal missing <file>${NC}              Missing protections finder"
+echo -e "  ${CYAN}/legal due-diligence <file>${NC}        M&A / investment due diligence"
+echo -e "  ${CYAN}/legal nda <description>${NC}           Generate custom NDA"
+echo -e "  ${CYAN}/legal terms <url>${NC}                 Generate terms of service"
+echo -e "  ${CYAN}/legal privacy <url>${NC}               Generate privacy policy"
+echo -e "  ${CYAN}/legal agreement <type>${NC}            Generate business agreements"
+echo -e "  ${CYAN}/legal freelancer <file>${NC}           Freelancer contract review"
+echo -e "  ${CYAN}/legal gig-economy <file>${NC}          Gig worker / platform review"
+echo -e "  ${CYAN}/legal compliance <url>${NC}            Compliance gap analysis"
+echo -e "  ${CYAN}/legal report-pdf${NC}                  Professional PDF report"
 echo ""
 echo -e "  ${YELLOW}Tip:${NC} Start with ${CYAN}/legal review <file>${NC} for a full contract analysis!"
 echo ""

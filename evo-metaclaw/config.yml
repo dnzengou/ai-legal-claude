@@ -1,5 +1,5 @@
 # EvoMetaClaw — AI Legal Assistant Integration Config
-# Project: ai-legal-claude-main · 14 skills · 5-agent pipeline
+# Project: ai-legal-claude-main · 16 skills · 5-agent pipeline
 
 mode: auto                        # evolutionary + smart scheduler
 
@@ -9,7 +9,7 @@ claw:
   patch_system_prompt: false      # CLAUDE.md handles system context
 
 evolution:
-  pop_size: 15                    # 15 skills — legal-gig-economy added epoch 1
+  pop_size: 16                    # 16 skills — legal-due-diligence added epoch 3
   max_epochs: 4
   grpo_group_size: 4
   crossover_rate: 0.3

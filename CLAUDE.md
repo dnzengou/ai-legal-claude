@@ -1,6 +1,6 @@
 # AI Legal Assistant — Claude Code Skills Suite
 
-Production-ready legal analysis system. 15 skills, 5 parallel agents, PDF report generation.
+Production-ready legal analysis system. 16 skills, 5 parallel agents, PDF report generation.
 
 ## What This Does
 
@@ -14,6 +14,7 @@ Drops into Claude Code as slash commands. No server. No subscription. Runs on yo
 /legal negotiate <file>       → counter-proposals + email template
 /legal missing <file>         → missing protections finder
 /legal batch <f1> <f2> ...    → multi-contract parallel review
+/legal due-diligence <file>   → investment/M&A 5-lens due diligence review
 /legal nda <description>      → generate custom NDA
 /legal terms <url>            → generate Terms of Service
 /legal privacy <url>          → generate Privacy Policy
@@ -28,7 +29,7 @@ Drops into Claude Code as slash commands. No server. No subscription. Runs on yo
 
 ```
 legal/SKILL.md               ← main router (invoked by /legal)
-skills/<name>/SKILL.md       ← 14 sub-skills, each handles one command
+skills/<name>/SKILL.md       ← 16 sub-skills, each handles one command
 agents/legal-*.md            ← 5 specialist agents (spawned in parallel by /legal review)
 scripts/generate_legal_pdf.py ← ReportLab PDF builder
 scripts/extract_review_json.py ← parses review markdown → JSON for PDF
@@ -67,6 +68,7 @@ All generated files land in the current working directory:
 | `/legal privacy` | `PRIVACY-POLICY-[company]-[date].md` |
 | `/legal agreement` | `AGREEMENT-[type]-[date].md` |
 | `/legal batch` | `BATCH-REVIEW-[date].md` |
+| `/legal due-diligence` | `DUE-DILIGENCE-[target]-[date].md` |
 | `/legal report-pdf` | `CONTRACT-REVIEW-REPORT.pdf` |
 
 ## CoT Multi-Agent Examples
@@ -131,6 +133,17 @@ pip install reportlab
 ---
 
 ## Changelog
+
+### 2026-06-23 — EvoMetaClaw Epoch 3 — 4 Mutations, 16 Skills, New investment_ma Niche
+
+- **M1 MUTATE legal-nda** (KafCa token-trim): 15-item verbose section list → compact 15-row table. 3-line `--- PLAIN ENGLISH ---` annotation blocks → inline `> **Plain English:** ...` format. Output template collapsed §3–§15 to shorthand reference. Added "No verbose per-section repetition" guideline. ~28% output token reduction.
+- **M2 MUTATE legal-terms** (KafCa token-trim): 16 verbose subsections (2.1–2.16) with bullet lists → compact 3-column table (§ | Section | Key clause · Include when). Output template collapsed §3–§15. Added "No redundant subsection repetition" guideline. ~25% output token reduction.
+- **M3 MUTATE legal-review**: Phase 1.4 Compliance Pre-Detection added after metadata extraction. Scans for SOC2 signals (`SOC 2`, `AICPA`, `Type II`, `audit report`, `trust service criteria`) and CAN-SPAM signals (`commercial email`, `unsubscribe`, `opt-out`, `bulk email`). Passes `COMPLIANCE_FLAGS` to all 5 subagents. CAN-SPAM penalty: $51,744/email surfaced proactively.
+- **M4 SPLICE legal-review + legal-compare → legal-due-diligence** (new skill, 16th command): Investment/M&A due diligence specialist. 5-lens framework: deal-killers (30%), liability exposure (25%), IP & technology (20%), revenue & customer risk (15%), reps/warranties (10%). Change-of-control analysis mandatory on every contract. Due Diligence Score 0–100. Command: `/legal due-diligence <file> [comparison-file]`.
+- **All 7 EvoMetaClaw state files updated**: `population.json` (epoch→3, pop_size→16, legal-due-diligence born provisional), `lineage.json` (epoch 3 nodes + edges), `q_table.json` (all 11 Q-states through epoch 3), `circuit_breaker_log.json` (pre/post epoch 3), `matrix_thoughts.json` (epoch 3 entry), `config.yml` (pop_size 15→16), `legal-orchestration-genome.md` (v3 — due-diligence routing, investment_ma niche, epoch 4 queue).
+- **Install scripts updated**: `install.sh` and `install.ps1` both updated to 16 Skills, added `legal-gig-economy` (was missing) and `legal-due-diligence` to SKILLS arrays. Command reference updated with all 16 commands.
+- **README updated**: All 16 Commands table, `legal-gig-economy` row added to Document Generation, `legal-due-diligence` row added to Contract Analysis.
+- **EvoMetaClaw epoch 3 complete**: population_size=16, diversity=0.92 (new niche), circuit_breaker=healthy. 3 mutations ACCEPT (avg 0.863), 1 ACCEPT_PROVISIONAL (legal-due-diligence, fitness=0.0, monitor 3 sessions). Epoch 4 queue: legal-privacy KafCa trim, legal-agreement KafCa trim, SOC2 full section in legal-compliance, legal-due-diligence fitness calibration, SPLICE → legal-portfolio-review.
 
 ### 2026-06-13 — EvoMetaClaw Epoch 2 — 4 Mutations, State Complete
 

@@ -59,6 +59,17 @@ Extract and store:
 - **Total value** — Payment amounts if specified
 - **Contract length** — Number of pages/sections/clauses
 
+### 1.4 Compliance Pre-Detection
+
+Scan the contract text for signals that trigger specific regulatory compliance checks. Flag these for the `legal-compliance.md` subagent to audit in depth.
+
+| Framework | Detection Signals | Risk if Present |
+|-----------|-------------------|-----------------|
+| **SOC 2** | "SOC 2," "AICPA," "Type II," "security controls," "availability SLA," "audit report," "trust service criteria" | Vendor may be making SOC 2 promises without the certification — verify certificate currency and scope |
+| **CAN-SPAM** | "commercial email," "marketing emails," "unsubscribe," "opt-out," "mailing list," "promotional," "bulk email" | CAN-SPAM violations carry $51,744/email penalties — check opt-out mechanism and sender ID requirements |
+
+If signals found: note the framework(s) in the metadata store and pass to Phase 2 agents as `COMPLIANCE_FLAGS: [SOC2, CAN-SPAM]`.
+
 ---
 
 ## Phase 2: Launch 5 Parallel Subagents

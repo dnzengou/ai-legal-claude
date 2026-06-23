@@ -11,14 +11,25 @@
     {"id": "legal-orchestrator-v2", "parents": ["legal-orchestrator-v1"], "epoch": 2, "fitness": 0.81, "niche": "contract_review", "note": "mutated epoch 2: gig-economy routing signal added"},
     {"id": "legal-plain-v2",        "parents": ["legal-plain-v1"], "epoch": 2, "fitness": 0.78, "niche": "contract_review", "note": "mutated epoch 2: KafCa token-trim — no original-text quoting, inline flags, compact section template"},
     {"id": "legal-review-v2",       "parents": ["legal-review-v1"], "epoch": 2, "fitness": 0.86, "niche": "contract_review", "note": "mutated epoch 2: Gig Worker/Platform row added to Phase 1.2 classification table"},
-    {"id": "legal-gig-economy-v1.1","parents": ["legal-gig-economy"], "epoch": 2, "fitness": 0.76, "niche": "compliance", "note": "fitness calibrated 0.0 → 0.76 after structural audit; 14 lenses confirmed; Gig Safety Score formula complete"}
+    {"id": "legal-gig-economy-v1.1","parents": ["legal-gig-economy"], "epoch": 2, "fitness": 0.76, "niche": "compliance", "note": "fitness calibrated 0.0 → 0.76 after structural audit; 14 lenses confirmed; Gig Safety Score formula complete"},
+    {"id": "legal-orchestrator-v3", "parents": ["legal-orchestrator-v2"], "epoch": 3, "fitness": 0.82, "niche": "contract_review", "note": "mutated epoch 3: due-diligence routing added; investment_ma niche registered"},
+    {"id": "legal-nda-v2",          "parents": ["legal-nda"],          "epoch": 3, "fitness": 0.82, "niche": "document_generation", "note": "M1 epoch 3: KafCa token-trim — section table, inline annotations, template collapse §3–§15"},
+    {"id": "legal-terms-v2",        "parents": ["legal-terms"],        "epoch": 3, "fitness": 0.80, "niche": "document_generation", "note": "M2 epoch 3: KafCa token-trim — 16-section compact table, template collapse §3–§15"},
+    {"id": "legal-review-v3",       "parents": ["legal-review-v2"],    "epoch": 3, "fitness": 0.87, "niche": "contract_review", "note": "M3 epoch 3: Phase 1.4 SOC2+CAN-SPAM compliance pre-detection added"},
+    {"id": "legal-due-diligence",   "parents": ["legal-review", "legal-compare"], "epoch": 3, "fitness": 0.0, "niche": "investment_ma", "splice_type": "SPLICE", "note": "born epoch 3 — M&A/investment 5-lens specialist (deal-killers, liability, IP, revenue, reps)"}
   ],
   "edges": [
-    {"from": "legal-nda",              "to": "legal-gig-economy",      "type": "splice",  "epoch": 1, "weight": 0.45},
-    {"from": "legal-freelancer",       "to": "legal-gig-economy",      "type": "splice",  "epoch": 1, "weight": 0.55},
-    {"from": "legal-orchestrator-v1",  "to": "legal-orchestrator-v2",  "type": "mutate",  "epoch": 2, "change": "M4-gig-routing"},
-    {"from": "legal-plain-v1",         "to": "legal-plain-v2",         "type": "mutate",  "epoch": 2, "change": "M1-kafca-token-trim"},
-    {"from": "legal-review-v1",        "to": "legal-review-v2",        "type": "mutate",  "epoch": 2, "change": "M3-gig-type-detection"},
-    {"from": "legal-gig-economy",      "to": "legal-gig-economy-v1.1", "type": "calibrate","epoch": 2, "change": "M2-fitness-calibration"}
+    {"from": "legal-nda",              "to": "legal-gig-economy",      "type": "splice",   "epoch": 1, "weight": 0.45},
+    {"from": "legal-freelancer",       "to": "legal-gig-economy",      "type": "splice",   "epoch": 1, "weight": 0.55},
+    {"from": "legal-orchestrator-v1",  "to": "legal-orchestrator-v2",  "type": "mutate",   "epoch": 2, "change": "M4-gig-routing"},
+    {"from": "legal-plain-v1",         "to": "legal-plain-v2",         "type": "mutate",   "epoch": 2, "change": "M1-kafca-token-trim"},
+    {"from": "legal-review-v1",        "to": "legal-review-v2",        "type": "mutate",   "epoch": 2, "change": "M3-gig-type-detection"},
+    {"from": "legal-gig-economy",      "to": "legal-gig-economy-v1.1", "type": "calibrate","epoch": 2, "change": "M2-fitness-calibration"},
+    {"from": "legal-orchestrator-v2",  "to": "legal-orchestrator-v3",  "type": "mutate",   "epoch": 3, "change": "due-diligence-routing"},
+    {"from": "legal-nda",              "to": "legal-nda-v2",           "type": "mutate",   "epoch": 3, "change": "M1-kafca-token-trim"},
+    {"from": "legal-terms",            "to": "legal-terms-v2",         "type": "mutate",   "epoch": 3, "change": "M2-kafca-token-trim"},
+    {"from": "legal-review-v2",        "to": "legal-review-v3",        "type": "mutate",   "epoch": 3, "change": "M3-soc2-canspam-detection"},
+    {"from": "legal-review",           "to": "legal-due-diligence",    "type": "splice",   "epoch": 3, "weight": 0.60},
+    {"from": "legal-compare",          "to": "legal-due-diligence",    "type": "splice",   "epoch": 3, "weight": 0.40}
   ]
 }

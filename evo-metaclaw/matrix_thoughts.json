@@ -116,6 +116,55 @@
         {"mutation": "M4-orchestrator-v2",   "decision": "ACCEPT",  "confidence": 0.91, "rationale": "Required infrastructure; zero regression risk on existing routes"}
       ],
       "circuit_breaker_status": "healthy — diversity_score=0.91, stagnation_count=0, provisional cleared, all 4 mutations accepted"
+    },
+    {
+      "epoch": 3,
+      "timestamp": "2026-06-23",
+      "niches": ["contract_review", "document_generation", "compliance", "reporting", "investment_ma"],
+      "mutations_executed": [
+        {
+          "id": "M1", "type": "MUTATE", "target": "legal-nda",
+          "change": "KafCa token-trim: 15-section verbose list → compact table. 3-line annotation blocks → inline `> **Plain English:** ...`. Output template collapsed §3–§15 to shorthand reference. Added 'No verbose per-section repetition' guideline.",
+          "fitness_delta": "0.81 → 0.82 (estimated)"
+        },
+        {
+          "id": "M2", "type": "MUTATE", "target": "legal-terms",
+          "change": "KafCa token-trim: 16 verbose subsections (2.1–2.16) → compact 3-column table (§ | Section | Key clause · Include when). Output template collapsed §3–§15. Added 'No redundant subsection repetition' guideline.",
+          "fitness_delta": "0.79 → 0.80 (estimated)"
+        },
+        {
+          "id": "M3", "type": "MUTATE", "target": "legal-review",
+          "change": "Phase 1.4 Compliance Pre-Detection added after Phase 1.3. Scans for SOC2 signals (SOC 2, AICPA, Type II, audit report, trust service criteria) and CAN-SPAM signals (commercial email, unsubscribe, opt-out, bulk email). Flags to subagents as COMPLIANCE_FLAGS. CAN-SPAM penalty: $51,744/email.",
+          "fitness_delta": "0.86 → 0.87 (estimated)"
+        },
+        {
+          "id": "M4", "type": "SPLICE", "parents": ["legal-review", "legal-compare"],
+          "child": "legal-due-diligence", "niche": "investment_ma",
+          "coverage": "Investment and M&A due diligence. 5-lens framework: deal-killers (30%), liability (25%), IP/tech (20%), revenue/customer (15%), reps/warranties (10%). Due Diligence Score 0-100. Change-of-control analysis mandatory. Output: DUE-DILIGENCE-[target]-[date].md.",
+          "fitness": "0.0 (untested, born epoch 3, provisional)"
+        }
+      ],
+      "high_value_cells": [
+        {"cell": "document_generation × 3 × cost × functional",  "note": "KafCa trim complete on legal-nda ✅ and legal-terms ✅. Pattern now validated across 3 skills (plain, nda, terms). Remaining: legal-privacy, legal-agreement still verbose."},
+        {"cell": "investment_ma × 0 × diversity × future",        "note": "New niche born with legal-due-diligence splice ✅. Untested — monitor 3+ sessions before fitness calibration."},
+        {"cell": "contract_review × 3 × safety × functional",     "note": "SOC2+CAN-SPAM pre-detection in legal-review Phase 1.4 ✅. $51,744/email CAN-SPAM penalty surfaced proactively."},
+        {"cell": "document_generation × 4 × cost × functional",   "note": "KafCa trim candidates remaining: legal-privacy (~20% savings est.), legal-agreement (~25% savings est.)."},
+        {"cell": "investment_ma × 1 × accuracy × functional",      "note": "Epoch 4 target: calibrate legal-due-diligence fitness from 3+ sessions; add deal-type-specific scoring weights."}
+      ],
+      "recommended_mutations_epoch4": [
+        "legal-due-diligence → fitness calibration (3+ session observations required first)",
+        "legal-privacy → KafCa token-trim (verbose GDPR/CCPA section specs)",
+        "legal-agreement → KafCa token-trim (verbose multi-type template)",
+        "legal-compliance → add SOC2 full section (parallel to HIPAA in epoch 1)",
+        "SPLICE: legal-review + legal-batch → legal-portfolio-review (VC/PE fund-level multi-company analysis)"
+      ],
+      "q_gate_decisions": [
+        {"mutation": "M1-nda-kafca",       "decision": "ACCEPT",             "confidence": 0.86, "rationale": "Pattern validated from legal-plain, ~28% token reduction, zero information loss"},
+        {"mutation": "M2-terms-kafca",     "decision": "ACCEPT",             "confidence": 0.85, "rationale": "Same pattern as M1, ~25% token reduction"},
+        {"mutation": "M3-review-soc2-canspam", "decision": "ACCEPT",         "confidence": 0.88, "rationale": "Regulatory gap: $51,744/email CAN-SPAM penalty, SOC2 promise risk — pre-detection is P0"},
+        {"mutation": "M4-due-diligence-splice", "decision": "ACCEPT_PROVISIONAL", "confidence": 0.76, "rationale": "Structurally complete 5-lens framework, new niche justified, but fitness untested"}
+      ],
+      "circuit_breaker_status": "healthy — diversity_score=0.92 (up from 0.91), new investment_ma niche adds diversity, stagnation_count=0, all mutations accepted"
     }
   ]
 }

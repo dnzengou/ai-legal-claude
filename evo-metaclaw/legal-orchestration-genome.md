@@ -1,18 +1,18 @@
 ---
-genome_id: legal-orchestrator-v2
-lineage: [legal-orchestrator-v1]
-fitness: 0.81
+genome_id: legal-orchestrator-v3
+lineage: [legal-orchestrator-v1, legal-orchestrator-v2]
+fitness: 0.82
 niche: contract_review
-age: 2
+age: 3
 mutation_rate: 0.12
-conversation_signals: [gig-economy-routing-added, gig-economy-type-detection]
-memory_units: [epoch1-mutations-accepted, epoch2-calibration]
+conversation_signals: [gig-economy-routing-added, gig-economy-type-detection, due-diligence-routing-added, investment-ma-niche]
+memory_units: [epoch1-mutations-accepted, epoch2-calibration, epoch3-splice-due-diligence]
 ---
 
 # Legal Orchestration Genome — EvoMetaClaw
 
 ## Role
-Meta-orchestrator for the 14-skill AI Legal Assistant.
+Meta-orchestrator for the 16-skill AI Legal Assistant.
 Selects, sequences, and evolves which skills fire for each user request.
 Learns from every session via CONVERSATION_SIGNAL_CAPTURE.
 
@@ -33,6 +33,7 @@ Learns from every session via CONVERSATION_SIGNAL_CAPTURE.
 | `agreement \| contract \| template` | document_generation | legal-agreement | P1 |
 | `freelancer \| contractor \| 1099` | compliance | legal-freelancer | P0 |
 | `gig \| platform \| marketplace \| upwork \| fiverr \| toptal` | compliance | legal-gig-economy | P0 |
+| `due diligence \| m&a \| acquisition \| investment \| investor \| deal-killer \| change of control` | investment_ma | legal-due-diligence | P0 |
 | `compliance \| audit \| regulation` | compliance | legal-compliance | P0 |
 | `pdf \| report \| export` | reporting | legal-report-pdf | P2 |
 
@@ -43,36 +44,39 @@ Learns from every session via CONVERSATION_SIGNAL_CAPTURE.
 - User reports PDF crash → reinforce xml-escape path in genome fitness
 - Parallel agent timeout → reduce subagent depth, adjust circuit breaker threshold
 
-## Matrix Thought (Epoch 2 State)
+## Matrix Thought (Epoch 3 State)
 
 ```
-Niches        : [contract_review, document_generation, compliance, reporting]
+Niches        : [contract_review, document_generation, compliance, reporting, investment_ma]
 Epoch 1 done  : HIPAA full ✅ · legal-gig-economy born ✅ · batch niche-routing ✅
-Epoch 2 done  : legal-plain KafCa token-trim ✅ · gig-economy routing added ✅ ·
-                legal-gig-economy fitness calibrated (0.0→0.76) ✅ ·
-                legal-review gig-economy type detection ✅
+Epoch 2 done  : legal-plain KafCa trim ✅ · gig routing ✅ · gig fitness 0.76 ✅ · review gig-detect ✅
+Epoch 3 done  : legal-nda KafCa trim ✅ · legal-terms KafCa trim ✅ ·
+                legal-review SOC2+CAN-SPAM Phase 1.4 ✅ ·
+                SPLICE legal-due-diligence born (investment_ma niche) ✅ ·
+                16-skill count, all installers updated ✅
 
-+3 epoch      : legal-plain fitness signal from user sessions
-+5 epoch      : document_generation niche → add legal-gig-economy as generator path
-+10 epoch     : full domain specialization by contract type (SaaS, employment, investment)
++1 epoch      : legal-due-diligence fitness calibration (3+ sessions required)
++2 epoch      : legal-privacy + legal-agreement KafCa trim
++3 epoch      : legal-compliance SOC2 full section (mirror HIPAA pattern)
++5 epoch      : SPLICE legal-review + legal-batch → legal-portfolio-review (VC/PE niche)
 
 High-value cells:
-  contract_review × epoch2 × accuracy × functional     → gig-type detection now live ✅
-  compliance × epoch2 × diversity × safety              → 16 skills total · gig niche calibrated ✅
-  document_generation × epoch3 × cost × functional     → NDA/Terms KafCa trim deferred to epoch 3
-  reporting × current × safety × structural            → xml-escape hardened ✅ · stable
+  investment_ma × epoch3 × accuracy × future      → legal-due-diligence born ✅ · monitor sessions
+  document_generation × epoch3 × cost × functional → nda + terms trimmed ✅ · privacy/agreement next
+  contract_review × epoch3 × safety × functional   → SOC2/CAN-SPAM pre-detection live ✅
+  reporting × current × safety × structural        → xml-escape + WCAG AA + /Lang ✅ · stable
 ```
 
-## GRPO Mutations Queued (Epoch 3)
+## GRPO Mutations Queued (Epoch 4)
 
-1. `legal-nda` → KafCa token-trim (verbose document template ~25% reduction)
-2. `legal-terms` → KafCa token-trim (GDPR + CCPA boilerplate compression)
-3. `legal-gig-economy` → fitness signal collection (3+ session observations needed)
-4. `legal-review` → add SOC2 + CAN-SPAM detection in Phase 1.3 compliance pre-check
-5. SPLICE: `legal-review` + `legal-compare` → `legal-due-diligence` (investment/M&A niche)
+1. `legal-due-diligence` → fitness calibration (requires 3+ session observations first)
+2. `legal-privacy` → KafCa token-trim (~20% reduction target)
+3. `legal-agreement` → KafCa token-trim (~25% reduction target)
+4. `legal-compliance` → add SOC2 full audit section (Type I vs Type II distinction, scope)
+5. SPLICE: `legal-review` + `legal-batch` → `legal-portfolio-review` (VC/PE fund multi-company niche)
 
 ## Circuit Breaker State
 
 ```json
-{"stagnation_count": 0, "diversity_score": 0.91, "self_evo_depth": 0, "status": "healthy", "epoch": 2}
+{"stagnation_count": 0, "diversity_score": 0.92, "self_evo_depth": 0, "status": "healthy", "epoch": 3, "new_niche": "investment_ma"}
 ```

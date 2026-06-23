@@ -32,11 +32,11 @@
 curl -fsSL https://raw.githubusercontent.com/zubair-trabzada/ai-legal-claude/main/install.sh | bash
 ```
 
-That's it. One command installs all 14 skills, 5 agents, and the PDF generation scripts.
+That's it. One command installs all 16 skills, 5 agents, and the PDF generation scripts.
 
 ---
 
-## All 14 Commands
+## All 16 Commands
 
 ### Contract Analysis
 | Command | What It Does |
@@ -48,6 +48,7 @@ That's it. One command installs all 14 skills, 5 agents, and the PDF generation 
 | `/legal negotiate <file>` | Generates specific counter-proposals with replacement language for every unfavorable clause. |
 | `/legal missing <file>` | Finds protections that SHOULD be in the contract but aren't. |
 | `/legal batch <f1> <f2> ...` | Reviews multiple contracts in parallel. Comparative risk table, highest-risk flagged first. |
+| `/legal due-diligence <file> [file2]` | Investment/M&A due diligence — 5-lens analysis for deal-killers, IP gaps, liability, revenue risk, and reps/warranties. |
 
 ### Document Generation
 | Command | What It Does |
@@ -57,11 +58,12 @@ That's it. One command installs all 14 skills, 5 agents, and the PDF generation 
 | `/legal privacy <url>` | Generates a privacy policy by scanning what data the site collects. |
 | `/legal agreement <type>` | Generates business agreements — freelancer contracts, partnerships, SOWs, MSAs, and more. |
 | `/legal freelancer <file>` | Specialized review from the freelancer's perspective. Flags common contractor traps. |
+| `/legal gig-economy <file>` | Specialized review for gig workers and platform contractors (Upwork, Fiverr, Toptal). |
 
 ### Compliance & Reporting
 | Command | What It Does |
 |---------|-------------|
-| `/legal compliance <url>` | Compliance gap analysis — GDPR, CCPA, ADA, PCI-DSS, CAN-SPAM, SOC 2. |
+| `/legal compliance <url>` | Compliance gap analysis — GDPR, CCPA, ADA, PCI-DSS, CAN-SPAM, SOC 2, HIPAA. |
 | `/legal report-pdf` | Professional PDF report with score gauges, risk charts, and prioritized actions. |
 
 ---

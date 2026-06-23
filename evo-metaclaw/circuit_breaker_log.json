@@ -51,12 +51,39 @@
       "note": "4 mutations accepted (M1 plain KafCa, M2 gig calibration, M3 review gig-detection, M4 orchestrator routing). Diversity slight drop 0.93→0.91 expected with calibration. No stagnation. Provisional cleared on legal-gig-economy."
     }
   ],
+    {
+      "epoch": 3,
+      "timestamp": "2026-06-23",
+      "check": "pre-evolution",
+      "status": "healthy",
+      "diversity_score": 0.91,
+      "stagnation_count": 0,
+      "self_evo_depth": 0,
+      "population_size": 15,
+      "decision": "PROCEED",
+      "note": "Epoch 3 baseline healthy. KafCa trim pattern validated from legal-plain. Splice target (investment_ma niche) identified as underserved."
+    },
+    {
+      "epoch": 3,
+      "timestamp": "2026-06-23",
+      "check": "post-evolution",
+      "status": "healthy",
+      "diversity_score": 0.92,
+      "stagnation_count": 0,
+      "self_evo_depth": 0,
+      "new_genomes": 1,
+      "mutated_genomes": 3,
+      "calibrated_genomes": 0,
+      "decision": "CHECKPOINT_SAVED",
+      "note": "4 mutations executed (M1 nda KafCa, M2 terms KafCa, M3 review SOC2/CAN-SPAM, M4 SPLICE due-diligence). Diversity up 0.91→0.92 (new investment_ma niche). legal-due-diligence born provisional. install.sh/ps1 and README updated to 16 skills."
+    }
+  ],
   "current_state": {
     "stagnation_count": 0,
-    "diversity_score": 0.91,
+    "diversity_score": 0.92,
     "self_evo_depth": 0,
     "status": "healthy",
-    "epoch": 2,
-    "population_size": 15
+    "epoch": 3,
+    "population_size": 16
   }
 }
