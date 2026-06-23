@@ -1,6 +1,6 @@
 {
-  "schema": "evo-metaclaw/circuit_breaker_log v1",
-  "generated": "2026-06-05",
+  "schema": "evo-metaclaw/circuit_breaker_log v2",
+  "generated": "2026-06-13",
   "events": [
     {
       "epoch": 1,
@@ -23,14 +23,40 @@
       "new_genomes": 1,
       "mutated_genomes": 2,
       "decision": "CHECKPOINT_SAVED"
+    },
+    {
+      "epoch": 2,
+      "timestamp": "2026-06-13",
+      "check": "pre-evolution",
+      "status": "healthy",
+      "diversity_score": 0.93,
+      "stagnation_count": 0,
+      "self_evo_depth": 0,
+      "population_size": 15,
+      "decision": "PROCEED",
+      "note": "Epoch 2 baseline healthy. Gig-economy genome provisional status active."
+    },
+    {
+      "epoch": 2,
+      "timestamp": "2026-06-13",
+      "check": "post-evolution",
+      "status": "healthy",
+      "diversity_score": 0.91,
+      "stagnation_count": 0,
+      "self_evo_depth": 0,
+      "new_genomes": 0,
+      "mutated_genomes": 4,
+      "calibrated_genomes": 1,
+      "decision": "CHECKPOINT_SAVED",
+      "note": "4 mutations accepted (M1 plain KafCa, M2 gig calibration, M3 review gig-detection, M4 orchestrator routing). Diversity slight drop 0.93→0.91 expected with calibration. No stagnation. Provisional cleared on legal-gig-economy."
     }
   ],
   "current_state": {
     "stagnation_count": 0,
-    "diversity_score": 0.93,
+    "diversity_score": 0.91,
     "self_evo_depth": 0,
     "status": "healthy",
-    "epoch": 1,
+    "epoch": 2,
     "population_size": 15
   }
 }

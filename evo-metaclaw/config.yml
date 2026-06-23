@@ -9,7 +9,7 @@ claw:
   patch_system_prompt: false      # CLAUDE.md handles system context
 
 evolution:
-  pop_size: 14                    # one genome per legal skill (initial)
+  pop_size: 15                    # 15 skills — legal-gig-economy added epoch 1
   max_epochs: 4
   grpo_group_size: 4
   crossover_rate: 0.3

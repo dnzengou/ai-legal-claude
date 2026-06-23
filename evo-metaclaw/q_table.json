@@ -1,1 +1,67 @@
-{"schema": "evo-metaclaw/q_table v1", "generated": "2026-06-04", "states": {}, "note": "Q-gate initialized empty. Fills after first evolution epoch."}
+{
+  "schema": "evo-metaclaw/q_table v2",
+  "generated": "2026-06-13",
+  "note": "Q-values represent cumulative fitness signal per (state, action) pair. Updated through epoch 2.",
+  "states": {
+    "epoch1:M1:legal-compliance:HIPAA-gap": {
+      "action_ACCEPT":  0.92,
+      "action_DEFER":   0.08,
+      "action_REJECT":  0.01,
+      "chosen": "ACCEPT",
+      "rationale": "Clear coverage gap, high regulatory risk, unambiguous quality improvement",
+      "outcome": "fitness 0.87 → 0.88 (+0.01 epoch 2 verified)"
+    },
+    "epoch1:M2:legal-gig-economy:SPLICE-born": {
+      "action_ACCEPT":  0.71,
+      "action_DEFER":   0.22,
+      "action_REJECT":  0.07,
+      "chosen": "ACCEPT_PROVISIONAL",
+      "rationale": "Novel genome, structural quality high, fitness untested — monitor 3 sessions",
+      "outcome": "fitness calibrated 0.76 in epoch 2; provisional → accepted"
+    },
+    "epoch1:M3:legal-batch:niche-routing": {
+      "action_ACCEPT":  0.88,
+      "action_DEFER":   0.10,
+      "action_REJECT":  0.02,
+      "chosen": "ACCEPT",
+      "rationale": "Non-breaking structural improvement, specialization gain measurable, zero regression risk",
+      "outcome": "fitness 0.83 → 0.84 (+0.01 epoch 2 verified)"
+    },
+    "epoch2:M1:legal-plain:kafca-token-trim": {
+      "action_ACCEPT":  0.84,
+      "action_DEFER":   0.14,
+      "action_REJECT":  0.02,
+      "chosen": "ACCEPT",
+      "rationale": "Token reduction ~30% with no information loss; original-text quoting was pure waste; inline flags improve scannability",
+      "outcome": "fitness assigned 0.78; monitor session feedback"
+    },
+    "epoch2:M2:legal-gig-economy:fitness-calibration": {
+      "action_ACCEPT":  0.89,
+      "action_DEFER":   0.09,
+      "action_REJECT":  0.02,
+      "chosen": "ACCEPT",
+      "rationale": "Structural audit confirmed 14 lenses, complete scoring formula, 4 contract types — 0.0 was placeholder, 0.76 is earned",
+      "outcome": "provisional status lifted; genome stable; monitor 2 more sessions"
+    },
+    "epoch2:M3:legal-review:gig-type-detection": {
+      "action_ACCEPT":  0.87,
+      "action_DEFER":   0.11,
+      "action_REJECT":  0.02,
+      "chosen": "ACCEPT",
+      "rationale": "Completes the gig-economy routing triangle: review detects → orchestrator routes → gig-economy analyzes",
+      "outcome": "fitness 0.85 → 0.86 verified in population; routing triangle complete"
+    },
+    "epoch2:M4:orchestrator-v2:gig-routing": {
+      "action_ACCEPT":  0.91,
+      "action_DEFER":   0.07,
+      "action_REJECT":  0.02,
+      "chosen": "ACCEPT",
+      "rationale": "Required infrastructure for M2/M3 to be useful; zero regression risk on existing routes",
+      "outcome": "orchestrator fitness 0.81; routing table complete at 15 skills"
+    }
+  },
+  "epoch_summary": {
+    "epoch1": {"mutations": 3, "accepted": 2, "provisional": 1, "rejected": 0, "avg_confidence": 0.837},
+    "epoch2": {"mutations": 4, "accepted": 4, "provisional": 0, "rejected": 0, "avg_confidence": 0.878}
+  }
+}

@@ -27,14 +27,12 @@ This skill is activated by `/legal plain <file>` where `<file>` is a file path, 
 Go through the contract section by section, clause by clause. For each one, provide:
 
 1. **Section heading and number** as it appears in the contract
-2. **Original text**: The exact legalese from the contract
-3. **Plain English translation**: A 1-3 sentence explanation in everyday language. Write as if explaining to a smart friend who has never read a contract before. Aim for an 8th-grade reading level.
-4. **Flags** (where applicable):
-   - **DELIBERATELY CONFUSING**: The legalese here is unnecessarily complex and appears designed to obscure meaning
-   - **WATCH OUT**: The plain English meaning is significantly different from what a non-lawyer might assume
-   - **SURPRISINGLY BROAD**: The scope of this clause is wider than it appears on first read
-   - **HIDDEN OBLIGATION**: This clause creates an obligation that is easy to miss
-   - **CONTRADICTS EXPECTATIONS**: What this says is the opposite of what most people would expect
+2. **Plain English translation**: A 1-2 sentence explanation in everyday language. Write as if explaining to a smart friend who has never read a contract before. Aim for an 8th-grade reading level. **Do NOT quote the original legalese** — the user has the contract. Reference by section number only.
+3. **Flags** (inline, single line each, only where genuinely warranted):
+   - `⚠️ WATCH OUT:` The plain meaning is significantly different from what a non-lawyer might assume
+   - `🔍 SURPRISINGLY BROAD:` The scope of this clause is wider than it appears on first read
+   - `🔒 HIDDEN OBLIGATION:` This clause creates an obligation that is easy to miss
+   - `❗ CONTRADICTS EXPECTATIONS:` What this says is the opposite of what most people would expect
 
 ### Step 3: Add "What This Really Means For You" Callouts
 
@@ -100,33 +98,16 @@ Write a file called `PLAIN-ENGLISH-[contract-name].md` in the same directory as 
 
 ## Section-by-Section Translation
 
-### Section [X]: [Title]
+### §[X] [Title]
+[1-2 sentence plain English translation. No original quote.]
+[Flag line if warranted: `⚠️ WATCH OUT: ...`]
+[Callout if key clause: `> **WHAT THIS REALLY MEANS FOR YOU**: ...`]
 
-**Original Language**:
-> "[exact contract text]"
-
-**In Plain English**:
-[1-3 sentence translation in everyday language]
-
-[If flagged]:
-> **WATCH OUT**: [explanation of why this is surprising or misleading]
-
-[If a key clause]:
-> **WHAT THIS REALLY MEANS FOR YOU**: [expanded real-world impact explanation with concrete examples]
-
----
-
-### Section [X.X]: [Title]
-
-**Original Language**:
-> "[exact contract text]"
-
-**In Plain English**:
+### §[X.X] [Title]
 [translation]
+[flag if warranted]
 
----
-
-[Continue for every section and clause]
+[Continue for every section — one short block per clause]
 
 ---
 
@@ -160,9 +141,10 @@ Write a file called `PLAIN-ENGLISH-[contract-name].md` in the same directory as 
 
 ### Important Guidelines
 
-- Never use legal jargon in the plain English translations. If you must use a legal term, define it immediately in parentheses.
-- Write translations as if the reader has zero legal background but is intelligent and wants to understand.
-- Do not editorialize or give legal advice in the translations. State what the clause means, not whether the reader should agree to it. Save opinions for the flags and callouts.
-- Be honest about ambiguity. If a clause could be read two ways, say so: "This could mean X or Y -- the language is ambiguous."
-- Include every section, even boilerplate. Boilerplate clauses are often where important terms hide.
-- The glossary should only include terms that actually appear in the contract being translated.
+- **No original text quoting.** The user has the contract. Reference by §number only. This is the single biggest token-waste to avoid.
+- Never use legal jargon in translations. If a legal term is unavoidable, define it inline in parentheses.
+- Write as if the reader has zero legal background but is intelligent and wants to understand.
+- Do not editorialize or give legal advice. State what the clause means, not whether to agree. Save opinions for flags and callouts.
+- Be honest about ambiguity: "This could mean X or Y — the language is ambiguous."
+- Cover every section including boilerplate. Important obligations hide in standard clauses.
+- Glossary: include only terms that actually appear in this contract.

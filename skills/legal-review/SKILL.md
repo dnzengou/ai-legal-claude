@@ -47,6 +47,7 @@ Identify the contract type to calibrate analysis:
 | **Lease / Rental** | "landlord," "tenant," "premises," "rent" | Termination penalties, maintenance liability, renewal terms |
 | **Sales / Purchase** | "buyer," "seller," "purchase price," "warranty" | Warranty limitations, return policies, indemnification |
 | **Investment / SAFE** | "investor," "valuation cap," "equity," "convertible" | Dilution, liquidation preferences, board rights, pro-rata |
+| **Gig Worker / Platform** | "gig," "marketplace," "platform fee," "per-project," "task," "escrow," "Upwork," "Fiverr," "Toptal" | IP grabs, non-circumvention, account suspension, kill fees, misclassification |
 
 ### 1.3 Extract Contract Metadata
 

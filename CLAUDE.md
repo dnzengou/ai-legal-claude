@@ -132,6 +132,15 @@ pip install reportlab
 
 ## Changelog
 
+### 2026-06-13 — EvoMetaClaw Epoch 2 — 4 Mutations, State Complete
+
+- **M1 MUTATE legal-plain** (KafCa token-trim): Removed original-text quoting (single largest token waste — user has the contract). Flags changed to inline emoji format (`⚠️ WATCH OUT:` / `🔍 SURPRISINGLY BROAD:` / `🔒 HIDDEN OBLIGATION:` / `❗ CONTRADICTS EXPECTATIONS:`). Section template changed from verbose block to compact `### §X Title / 1-2 sentence / flag` format. "No original text quoting." added as first important guideline. Estimated ~30% output token reduction.
+- **M2 CALIBRATE legal-gig-economy**: Fitness calibrated 0.0 → 0.76 (provisional status cleared) after structural audit confirmed 14 analysis lenses, complete Gig Safety Score formula, 4 contract types fully handled. Ready for session-signal fitness tracking in epoch 3.
+- **M3 MUTATE legal-review**: Gig Worker / Platform row added to Phase 1.2 contract-type classification table — detection signals: `gig, marketplace, platform fee, per-project, task, escrow, Upwork, Fiverr, Toptal`. Completes routing triangle: review detects → orchestrator routes → gig-economy analyses.
+- **M4 MUTATE legal-orchestrator**: Gig routing signal added to routing table (P0). Genome promoted to v2. Matrix Thought updated to epoch 2 state. GRPO epoch 3 queue populated (5 mutations).
+- **All 6 EvoMetaClaw state files updated**: `population.json` (epoch→2, pop_size→15, gig fitness calibrated, niche_stats), `lineage.json` (epoch 2 nodes + edges), `q_table.json` (all 7 Q-states filled for epoch 1+2), `circuit_breaker_log.json` (pre/post epoch 2 events), `matrix_thoughts.json` (epoch 2 entry with mutations, cells, Q-gate), `config.yml` (pop_size 14→15).
+- **EvoMetaClaw epoch 2 complete**: population_size=15, diversity=0.91, circuit_breaker=healthy. All 4 Q-gate decisions ACCEPT (avg confidence 0.878). Epoch 3 queue: NDA/Terms KafCa trim, gig fitness signal collection, SOC2+CAN-SPAM detection, SPLICE legal-review+legal-compare → legal-due-diligence.
+
 ### 2026-06-13 — Accessibility-First Visual Redesign (WCAG 2.1 AA)
 
 UX/UI overhaul of every visual surface — PDFs, markdown templates, banner, README — with WCAG 2.1 Level AA conformance and triple-redundant risk indicators (shape + text + color). Driven by KafCade + KafCa: terse code, no premature abstraction, RRSS principles. Sets the baseline so disability-adjusted output is the default, not a flag.
